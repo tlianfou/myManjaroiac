@@ -162,3 +162,6 @@ let g:solarized_termtrans=1
 colorscheme solarized
 
 "let g:completor_clang_binary = '/path/to/clang'
+
+"设置markdownpreview的默认打开浏览器
+let g:mkdp_browser = 'google-chrome-stable'
