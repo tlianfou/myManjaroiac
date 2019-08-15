@@ -166,7 +166,7 @@ ws-icon-default = 
 ; you must also define a ws-icon-5.
 ; NOTE: Icon will be available as the %icon% token inside label-*
 
-label-focused = %icon%  %name% 
+label-focused = %icon% 
 label-focused-foreground = ${colors.fg-alt}
 label-focused-underline= ${colors.blue}
 label-focused-padding = 4
