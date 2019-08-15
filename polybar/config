@@ -22,11 +22,25 @@ bg = #2f343f
 fg = #f3f3f5
 fg-alt = #f3f3f5
 
+bg-0 = #3f3f3f
+bg-1 = #3d3e3f
+bg-2 = #3c3d3f
+bg-3 = #3a3c3f
+bg-4 = #393b3f
+bg-5 = #373a3f
+bg-6 = #35383f
+bg-7 = #34373f
+bg-8 = #32363f
+bg-9 = #31353f
+
 normal = #7cfc00
 warning = #ffff00
-urgent = #DC143C
+urgent = #dc143c
 
-label = #88c0d0
+; label = #60ffc6
+; label = #FFFF60
+; label = #FF389C
+label = #FF1AEE
 separator = #434c5e
 
 blue = #5294e2
@@ -63,11 +77,16 @@ background = ${colors.bg}
 foreground = ${colors.fg}
 
 ; 背景渐变，垂直方案
-; background-0 = #D8BFD8	
-; background-1 = #DDA0DD	
-; background-2 = #EE82EE	
-; background-3 = #FF00FF	
-; background-4 =  #FF00FF	
+; background-0 = ${colors.bg-0} 
+; background-1 = ${colors.bg-1}
+; background-2 = ${colors.bg-2}
+; background-3 = ${colors.bg-3}
+; background-4 = ${colors.bg-4}
+; background-5 = ${colors.bg-5}
+; background-6 = ${colors.bg-6}
+; background-7 = ${colors.bg-7}
+; background-8 = ${colors.bg-8}
+; background-9 = ${colors.bg-9}
 
 ; 边界线设置
 line-size = 3
@@ -96,7 +115,7 @@ font-4 = "material icons:pixelsize=16;3"
 ; separator = |
 
 ; 将module添加到左/中/右可用块中
-modules-left = rofi i3 title 
+modules-left = rofi i3 
 modules-center = mpd
 modules-right = backlight pulseaudio temperature memory cpu wlan battery date
 
@@ -129,7 +148,7 @@ click-left = exec rofi -show drun
  
 [module/title]
 type = internal/xwindow
-label = [ %title:0:30:...% ]
+label = [ %title:0:20:...% ]
 
 [module/mpd]
 type = internal/mpd
@@ -137,13 +156,13 @@ type = internal/mpd
 host = 127.0.0.1
 port = 6600
 
-format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop> | <bar-progress> | <icon-repeat> <icon-random>
-format-paused = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>
+format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>  <bar-progress>  <icon-repeat> <icon-random>
+format-paused = <toggle>  <label-song> <icon-stop>
 format-stopped =  <toggle>
 
-label-song = 𝄞 %title%
+label-song =  %title%
 
-label-song-underline = ${colors.cadet-blue-2}
+# label-song-underline = ${colors.cadet-blue-2}
 
 icon-play = 
 icon-play-foreground = ${colors.normal}
@@ -154,10 +173,10 @@ icon-pause-margin = 1
 icon-stop = 
 icon-stop-foreground = ${colors.urgent}
 icon-stop-margin = 1
-icon-prev = 
+icon-prev = 
 icon-prev-foreground = ${colors.medium-purple}
 icon-prev-margin = 1
-icon-next = 
+icon-next = 
 icon-next-foreground = ${colors.medium-purple}
 icon-next-margin = 1
 icon-repeat = 
@@ -165,17 +184,19 @@ icon-repeat-margin = 1
 icon-random = 
 icon-random-margin = 1
 
-toggle-on-foreground = ${colors.normal}
+toggle-on-foreground = ${colors.blue}
 toggle-off-foreground = ${colors.urgent}
 
 bar-progress-width = 10
-bar-progress-indicator = |
-bar-progress-fill = ─
-bar-progress-empty = ─
+bar-progress-indicator = 
+bar-progress-fill = 
+bar-progress-fill-foreground = ${colors.urgent}
+bar-progress-empty = 
+bar-progress-empty-foreground = ${colors.normal}
 bar-progress-gradient = true
-# bar-progress-foreground-0 = ${colors.cadet-blue}
-# bar-progress-foreground-1 = ${colors.cadet-blue-2}
-# bar-progress-foreground-2 = ${colors.light-slate-gray}
+# bar-progress-foreground-0 = ${colors.urgent}
+# bar-progress-foreground-1 = ${colors.urgent}
+# bar-progress-foreground-2 = ${colors.normal}
 
 [module/i3]
 type = internal/i3
