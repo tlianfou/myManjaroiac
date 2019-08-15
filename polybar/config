@@ -22,17 +22,21 @@ bg = #2f343f
 fg = #f3f3f5
 fg-alt = #f3f3f5
 
-normal = #7CFC00
-warning = #FFFF00
+normal = #7cfc00
+warning = #ffff00
 urgent = #DC143C
 
 label = #88c0d0
-separator = #434C5E
+separator = #434c5e
 
 blue = #5294e2
+cadet-blue = #8fbcbb
+cadet-blue-2 = #88c0d0
 grep = #d8dee9
-deep-sky-blue = #00BFFF
-orange-red = #FF4500
+light-slate-gray = #81a1c1
+deep-sky-blue = #00bfff
+orange-red = #ff4500
+medium-purple = #9370db
 
 [bar/taifu]
 ; 显示器，使用命令
@@ -92,8 +96,8 @@ font-4 = "material icons:pixelsize=16;3"
 ; separator = |
 
 ; 将module添加到左/中/右可用块中
-modules-left = rofi i3 
-modules-center = title
+modules-left = rofi i3 title 
+modules-center = mpd
 modules-right = backlight pulseaudio temperature memory cpu wlan battery date
 
 ; 系统托盘
@@ -126,6 +130,52 @@ click-left = exec rofi -show drun
 [module/title]
 type = internal/xwindow
 label = [ %title:0:30:...% ]
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop> | <bar-progress> | <icon-repeat> <icon-random>
+format-paused = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>
+format-stopped =  <toggle>
+
+label-song = 𝄞 %title%
+
+label-song-underline = ${colors.cadet-blue-2}
+
+icon-play = 
+icon-play-foreground = ${colors.normal}
+icon-play-margin = 1
+icon-pause = 
+icon-pause-foreground = ${colors.warning}
+icon-pause-margin = 1
+icon-stop = 
+icon-stop-foreground = ${colors.urgent}
+icon-stop-margin = 1
+icon-prev = 
+icon-prev-foreground = ${colors.medium-purple}
+icon-prev-margin = 1
+icon-next = 
+icon-next-foreground = ${colors.medium-purple}
+icon-next-margin = 1
+icon-repeat = 
+icon-repeat-margin = 1
+icon-random = 
+icon-random-margin = 1
+
+toggle-on-foreground = ${colors.normal}
+toggle-off-foreground = ${colors.urgent}
+
+bar-progress-width = 10
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+bar-progress-gradient = true
+# bar-progress-foreground-0 = ${colors.cadet-blue}
+# bar-progress-foreground-1 = ${colors.cadet-blue-2}
+# bar-progress-foreground-2 = ${colors.light-slate-gray}
 
 [module/i3]
 type = internal/i3
@@ -410,35 +460,6 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
-[module/network]
-type = internal/network
-interface = wlp2s0
-
-; Seconds to sleep between updates
-; Default: 1
-interval = 3.0
-
-; Test connectivity every Nth update
-; A value of 0 disables the feature
-; NOTE: Experimental (needs more testing)
-; Default: 0
-;ping-interval = 3
-
-; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
-; Minimum output width of upload/download rate
-; Default: 3
-udspeed-minwidth = 5
-
-; Accumulate values from all interfaces
-; when querying for up/downspeed rate
-; Default: false
-accumulate-stats = true
-
-; Consider an `UNKNOWN` interface state as up.
-; Some devices like USB network adapters have 
-; an unknown state, even when they're running
-; Default: false
-unknown-as-up = true
 
 [module/menu]
 type = custom/menu
