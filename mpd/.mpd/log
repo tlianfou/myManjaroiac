@@ -834,3 +834,34 @@ Aug 16 11:30 : player: played "此时此世与你.mp3"
 Aug 16 11:33 : player: played "勾指起誓.mp3"
 Aug 16 11:37 : player: played "何日重到苏澜桥.mp3"
 Aug 16 11:41 : player: played "回望（Recall）.mp3"
+Aug 16 11:44 : player: played "九张机（Cover 叶炫清）.mp3"
+Aug 16 12:01 : player: played "七音钵.mp3"
+Aug 16 12:06 : player: played "杀手.mp3"
+Aug 16 12:09 : player: played "诗与爱情（致七夕）.mp3"
+Aug 16 12:12 : client: [0] closed
+Aug 16 12:12 : client: [4] opened from 127.0.0.1:45068
+Aug 16 12:13 : client: [4] closed
+Aug 16 12:14 : client: [5] opened from 127.0.0.1:45070
+Aug 16 12:14 : client: [5] closed
+Aug 16 12:14 : player: played "妄想感傷代償連盟.mp3"
+Aug 16 12:17 : client: [6] opened from 127.0.0.1:45190
+Aug 16 12:17 : exception: Failed to open /home/taifu/.mpd/playlists: No such file or directory
+Aug 16 12:17 : client: [6] closed
+Aug 16 12:18 : player: played "我的天空.mp3"
+Aug 16 12:21 : player: played "一起走的幸福.mp3"
+Aug 16 12:24 : player: played "站起来.mp3"
+Aug 16 12:28 : player: played "征 (Conquest).mp3"
+Aug 16 12:33 : player: played "卒业 -Congratulations- feat. Lotus Juice.mp3"
+Aug 16 12:34 : client: [7] opened from 127.0.0.1:45638
+Aug 16 12:34 : client: [7] closed
+Aug 16 12:36 : player: played "Calling Out.mp3"
+Aug 16 15:16 : exception: RTIOThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 15:16 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Aug 16 15:16 : avahi: Service 'Music Player @ taifu-Manjaro' successfully established.
+ALSA lib pcm_dmix.c:1108:(snd_pcm_dmix_open) unable to open slave
+Aug 16 15:16 : exception: Failed to open "ALSA" (alsa)
+Aug 16 15:16 : exception: nested: Failed to open ALSA device "default": Device or resource busy
+Aug 16 15:16 : exception: Failed to open "ALSA" (alsa)
+Aug 16 15:16 : exception: nested: Failed to open ALSA device "default": Device or resource busy
+Aug 16 15:16 : player: problems opening audio device while playing "Calling Out.mp3"
+Aug 16 15:16 : client: [0] opened from 127.0.0.1:53790

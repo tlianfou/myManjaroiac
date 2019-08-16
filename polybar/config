@@ -19,20 +19,21 @@
 [global-wm]
 
 include-file = $HOME/.config/polybar/colors
-include-file = $HOME/.config/polybar/module/module-backlight
-include-file = $HOME/.config/polybar/module/module-battery
-include-file = $HOME/.config/polybar/module/module-cpu
-include-file = $HOME/.config/polybar/module/module-date
-include-file = $HOME/.config/polybar/module/module-eth
-include-file = $HOME/.config/polybar/module/module-i3
-include-file = $HOME/.config/polybar/module/module-memory
-include-file = $HOME/.config/polybar/module/module-mpd
-include-file = $HOME/.config/polybar/module/module-powermenu
-include-file = $HOME/.config/polybar/module/module-pulseaudio
-include-file = $HOME/.config/polybar/module/module-rofi
-include-file = $HOME/.config/polybar/module/module-temperature
-include-file = $HOME/.config/polybar/module/module-title
-include-file = $HOME/.config/polybar/module/module-wlan
+include-file = $HOME/.config/polybar/module/backlight
+include-file = $HOME/.config/polybar/module/battery
+include-file = $HOME/.config/polybar/module/cpu
+include-file = $HOME/.config/polybar/module/date
+include-file = $HOME/.config/polybar/module/eth
+include-file = $HOME/.config/polybar/module/i3
+include-file = $HOME/.config/polybar/module/memory
+include-file = $HOME/.config/polybar/module/mpd
+include-file = $HOME/.config/polybar/module/network-detail
+include-file = $HOME/.config/polybar/module/powermenu
+include-file = $HOME/.config/polybar/module/pulseaudio
+include-file = $HOME/.config/polybar/module/rofi
+include-file = $HOME/.config/polybar/module/temperature
+include-file = $HOME/.config/polybar/module/title
+include-file = $HOME/.config/polybar/module/wlan
 
 [bar/taifu]
 ; 显示器，使用命令
@@ -97,7 +98,7 @@ font-4 = "material icons:pixelsize=16;3"
 ; separator = |
 
 ; 将module添加到左/中/右可用块中
-modules-left = rofi i3 
+modules-left = rofi i3 network-detail 
 modules-center = mpd
 modules-right = backlight pulseaudio temperature memory cpu wlan battery date
 
