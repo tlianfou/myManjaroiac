@@ -1,0 +1,36 @@
+;===============================================================
+;  _                                      _                  
+; | |_ ___ _ __ ___  _ __   ___ _ __ __ _| |_ _   _ _ __ ___ 
+; | __/ _ \ '_ ` _ \| '_ \ / _ \ '__/ _` | __| | | | '__/ _ \
+; | ||  __/ | | | | | |_) |  __/ | | (_| | |_| |_| | | |  __/
+;  \__\___|_| |_| |_| .__/ \___|_|  \__,_|\__|\__,_|_|  \___|
+;                   |_|                                      
+;
+;===============================================================
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+; format-underline = #f50a4d
+
+format-warn = <label-warn>
+; format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-foreground = ${colors.label}
+
+label-warn =  %temperature-c%
+label-warn-foreground = ${colors.urgent}
+
+ramp-0 = 
+ramp-0-foreground = ${colors.urgent}
+ramp-1 = 
+ramp-1-foreground = ${colors.warning}
+ramp-2 = 
+ramp-2-foreground = ${colors.deep-sky-blue}
+
+
+; vim:ft=dosini

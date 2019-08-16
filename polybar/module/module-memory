@@ -1,0 +1,31 @@
+;==============================================
+;
+;  _ __ ___   ___ _ __ ___   ___  _ __ _   _ 
+; | '_ ` _ \ / _ \ '_ ` _ \ / _ \| '__| | | |
+; | | | | | |  __/ | | | | | (_) | |  | |_| |
+; |_| |_| |_|\___|_| |_| |_|\___/|_|   \__, |
+;                                      |___/ 
+; 
+;==============================================
+
+[module/memory]
+type = internal/memory
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.fg-alt}
+; format-underline = #4bffdc
+
+format = <ramp-used> <label>
+
+label =  %percentage_used%%
+label-foreground = ${colors.label}
+
+ramp-used-0 = 
+ramp-used-0-foreground = ${colors.normal}
+ramp-used-1 = 
+ramp-used-1-foreground = ${colors.warning}
+ramp-used-2 = 
+ramp-used-2-foreground = ${colors.urgent}
+
+
+; vim:ft=dosini

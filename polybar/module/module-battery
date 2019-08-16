@@ -1,0 +1,50 @@
+;========================================
+;  _           _   _                  
+; | |__   __ _| |_| |_ ___ _ __ _   _ 
+; | '_ \ / _` | __| __/ _ \ '__| | | |
+; | |_) | (_| | |_| ||  __/ |  | |_| |
+; |_.__/ \__,_|\__|\__\___|_|   \__, |
+;                               |___/ 
+;
+;========================================
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+; format-charging-underline = #ffb52a
+label-charging =  %percentage%%
+label-charging-foreground = ${colors.warning}
+
+format-discharging =  <ramp-capacity> <label-discharging>
+; format-discharging-underline = ${self.format-charging-underline}
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.label}
+
+; format-full-underline = ${self.format-charging-underline}
+label-full = Fully %percentage%%
+label-full-foreground = ${colors.normal}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.urgent}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.warning}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.normal}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.normal}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.normal}
+
+
+; vim:ft=dosini

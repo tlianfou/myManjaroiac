@@ -16,41 +16,23 @@
 ; 
 ;==========================================================
 
-[colors]
+[global-wm]
 
-bg = #2f343f
-fg = #f3f3f5
-fg-alt = #f3f3f5
-
-bg-0 = #3f3f3f
-bg-1 = #3d3e3f
-bg-2 = #3c3d3f
-bg-3 = #3a3c3f
-bg-4 = #393b3f
-bg-5 = #373a3f
-bg-6 = #35383f
-bg-7 = #34373f
-bg-8 = #32363f
-bg-9 = #31353f
-
-normal = #7cfc00
-warning = #ffff00
-urgent = #dc143c
-
-; label = #60ffc6
-; label = #FFFF60
-; label = #FF389C
-label = #FF1AEE
-separator = #434c5e
-
-blue = #5294e2
-cadet-blue = #8fbcbb
-cadet-blue-2 = #88c0d0
-grep = #d8dee9
-light-slate-gray = #81a1c1
-deep-sky-blue = #00bfff
-orange-red = #ff4500
-medium-purple = #9370db
+include-file = $HOME/.config/polybar/colors
+include-file = $HOME/.config/polybar/module/module-backlight
+include-file = $HOME/.config/polybar/module/module-battery
+include-file = $HOME/.config/polybar/module/module-cpu
+include-file = $HOME/.config/polybar/module/module-date
+include-file = $HOME/.config/polybar/module/module-eth
+include-file = $HOME/.config/polybar/module/module-i3
+include-file = $HOME/.config/polybar/module/module-memory
+include-file = $HOME/.config/polybar/module/module-mpd
+include-file = $HOME/.config/polybar/module/module-powermenu
+include-file = $HOME/.config/polybar/module/module-pulseaudio
+include-file = $HOME/.config/polybar/module/module-rofi
+include-file = $HOME/.config/polybar/module/module-temperature
+include-file = $HOME/.config/polybar/module/module-title
+include-file = $HOME/.config/polybar/module/module-wlan
 
 [bar/taifu]
 ; 显示器，使用命令
@@ -73,20 +55,20 @@ fixed-center = true
 bottom = false
 
 ; 背景色和前景色
-background = ${colors.bg}
+; background = ${colors.bg}
 foreground = ${colors.fg}
 
 ; 背景渐变，垂直方案
-; background-0 = ${colors.bg-0} 
-; background-1 = ${colors.bg-1}
-; background-2 = ${colors.bg-2}
-; background-3 = ${colors.bg-3}
-; background-4 = ${colors.bg-4}
-; background-5 = ${colors.bg-5}
-; background-6 = ${colors.bg-6}
-; background-7 = ${colors.bg-7}
-; background-8 = ${colors.bg-8}
-; background-9 = ${colors.bg-9}
+background-0 = ${colors.bg-0} 
+background-1 = ${colors.bg-1}
+background-2 = ${colors.bg-2}
+background-3 = ${colors.bg-3}
+background-4 = ${colors.bg-4}
+background-5 = ${colors.bg-5}
+background-6 = ${colors.bg-6}
+background-7 = ${colors.bg-7}
+background-8 = ${colors.bg-8}
+background-9 = ${colors.bg-9}
 
 ; 边界线设置
 line-size = 3
@@ -137,398 +119,5 @@ locale = zh_CN.UTF-8
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-[module/rofi]
-type = custom/text
-content =  
-content-padding = 4
-content-background = ${colors.blue}
-content-foreground = ${colors.fg}
-click-left = exec rofi -show drun
- 
-[module/title]
-type = internal/xwindow
-label = [ %title:0:20:...% ]
-
-[module/mpd]
-type = internal/mpd
-
-host = 127.0.0.1
-port = 6600
-
-format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>  <bar-progress>  <icon-repeat> <icon-random>
-format-paused = <toggle>  <label-song> <icon-stop>
-format-stopped =  <toggle>
-
-label-song =  %title%
-
-# label-song-underline = ${colors.cadet-blue-2}
-
-icon-play = 
-icon-play-foreground = ${colors.normal}
-icon-play-margin = 1
-icon-pause = 
-icon-pause-foreground = ${colors.warning}
-icon-pause-margin = 1
-icon-stop = 
-icon-stop-foreground = ${colors.urgent}
-icon-stop-margin = 1
-icon-prev = 
-icon-prev-foreground = ${colors.medium-purple}
-icon-prev-margin = 1
-icon-next = 
-icon-next-foreground = ${colors.medium-purple}
-icon-next-margin = 1
-icon-repeat = 
-icon-repeat-margin = 1
-icon-random = 
-icon-random-margin = 1
-
-toggle-on-foreground = ${colors.blue}
-toggle-off-foreground = ${colors.urgent}
-
-bar-progress-width = 10
-bar-progress-indicator = 
-bar-progress-fill = 
-bar-progress-fill-foreground = ${colors.urgent}
-bar-progress-empty = 
-bar-progress-empty-foreground = ${colors.normal}
-bar-progress-gradient = true
-# bar-progress-foreground-0 = ${colors.urgent}
-# bar-progress-foreground-1 = ${colors.urgent}
-# bar-progress-foreground-2 = ${colors.normal}
-
-[module/i3]
-type = internal/i3
-
-; 索引排序
-index-sort = true
-
-; 工作区环绕 1-2-3-4-5-6-7-8-1
-wrapping-scroll = true
-reverse-scroll = true
-
-; 仅显示与条形图相同的输出中定义的工作空间
-pin-workspaces = false
-
-; 这将在'：'上拆分工作区名称
-strip-wsnumbers = true
-
-; 点击切换工作区
-enable-click = true
-
-; 循环工作区
-enable-scroll = true
-fuzzy-match = false
-format = <label-state> <label-mode>
-
-; ws-icon-[0-9]+ = label;icon
-; NOTE: The label needs to match the name of the i3 workspace
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-default = 
-; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
-; you must also define a ws-icon-5.
-; NOTE: Icon will be available as the %icon% token inside label-*
-
-label-focused = %icon% 
-label-focused-foreground = ${colors.fg-alt}
-label-focused-underline= ${colors.blue}
-label-focused-padding = 4
-
-
-label-unfocused = %icon%
-label-unfocused-padding = 4
-
-label-urgent = %icon%
-label-urgent-background = ${colors.urgent}
-label-urgent-padding = 4
-
-; 分隔符
-label-separator = |
-label-separator-foreground = ${colors.separator}
-
-; 背光
-[module/backlight]
-type = internal/xbacklight
-
-format = <ramp> <label>
-; format-underline = #7CFC00
-
-label =  %percentage%%
-label-foreground = ${colors.label}
-
-; Only applies if <ramp> is used
-ramp-0 = 
-ramp-0-foreground = ${colors.grep}
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-
-format = <ramp-load> <label>
-; format-underline = #F0FFFF
-
-label =  %percentage%%
-label-foreground = ${colors.label}
-
-ramp-load-0 = 
-ramp-load-0-foreground = ${colors.normal}
-ramp-load-1 = 
-ramp-load-1-foreground = ${colors.warning}
-ramp-load-2 = 
-ramp-load-2-foreground = ${colors.urgent}
-
-[module/memory]
-type = internal/memory
-interval = 1
-format-prefix = " "
-format-prefix-foreground = ${colors.fg-alt}
-; format-underline = #4bffdc
-
-format = <ramp-used> <label>
-
-label =  %percentage_used%%
-label-foreground = ${colors.label}
-
-ramp-used-0 = 
-ramp-used-0-foreground = ${colors.normal}
-ramp-used-1 = 
-ramp-used-1-foreground = ${colors.warning}
-ramp-used-2 = 
-ramp-used-2-foreground = ${colors.urgent}
-
-[module/wlan]
-type = internal/network
-
-; 注意：interface项要在terminal使用指令
-; ifconfig -a
-; 查看，选择合适的网卡，一般以wl开头
-interface = wlp2s0
-
-interval = 1.0
-ramp-signal-foreground = ${colors.fg-alt}
-
-format-connected = <ramp-signal> <label-connected>
-; format-connected-underline = #9f78e1
-
-label-connected = %downspeed:9%
-label-connected-foreground = ${colors.label}
-
-ramp-signal-0 = 
-ramp-signal-0-foreground = ${colors.urgent} 
-ramp-signal-1 = 
-ramp-signal-1-foreground = ${colors.warning}
-ramp-signal-2 = 
-ramp-signal-2-foreground = ${colors.deep-sky-blue} 
-
-format-disconnected = <label-disconnected>
-
-label-disconnected =  disconnect
-label-disconnected-foreground = ${colors.urgent}
-
-[module/eth]
-type = internal/network
-interface = enp0s25
-interval = 3.0
-
-; format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.fg-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-; format-disconnected = <label-disconnected>
-; format-disconnected-underline = ${self.format-connected-underline}
-; label-disconnected = %ifname% disconnected
-; label-disconnected-foreground = ${colors.fg-alt}
-
-[module/date]
-type = internal/date
-interval = 0.5
-
-date-alt = "%y-%m-%d"
-
-time = %H:%M:%S
-
-; format-underline = #0a6cf5
-
-label =  %date% %time%
-label-font = 3
-label-foreground = ${colors.label}
-
-[module/pulseaudio]
-type = internal/pulseaudio
-
-; 在terminal中使用命令 pacmd list-sinks 查找
-sink = alsa_output.pci-0000_00_1f.3.analog-stereo
-
-format-volume = <ramp-volume> <label-volume>
-; format-volume-underline = #C0C0C0
-
-label-volume =  %percentage%%
-label-volume-foreground = ${colors.label}
-
-ramp-volume-0 = 
-ramp-volume-0-foreground = ${colors.normal}
-ramp-volume-1 = 
-ramp-volume-1-foreground = ${colors.warning}
-ramp-volume-2 = 
-ramp-volume-2-foreground = ${colors.urgent}
-
-format-muted = <label-muted>
-; format-muted-underline = #C0C0C0
-
-label-muted =  muted 
-label-muted-foreground = ${colors.urgent}
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 98
-
-format-charging = <animation-charging> <label-charging>
-; format-charging-underline = #ffb52a
-label-charging =  %percentage%%
-label-charging-foreground = ${colors.warning}
-
-format-discharging =  <ramp-capacity> <label-discharging>
-; format-discharging-underline = ${self.format-charging-underline}
-label-discharging = %percentage%%
-label-discharging-foreground = ${colors.label}
-
-; format-full-underline = ${self.format-charging-underline}
-label-full = Fully %percentage%%
-label-full-foreground = ${colors.normal}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.urgent}
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.warning}
-ramp-capacity-2 = 
-ramp-capacity-2-foreground = ${colors.normal}
-ramp-capacity-3 = 
-ramp-capacity-3-foreground = ${colors.normal}
-ramp-capacity-4 = 
-ramp-capacity-4-foreground = ${colors.normal}
-
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-; format-underline = #f50a4d
-
-format-warn = <label-warn>
-; format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-foreground = ${colors.label}
-
-label-warn =  %temperature-c%
-label-warn-foreground = ${colors.urgent}
-
-ramp-0 = 
-ramp-0-foreground = ${colors.urgent}
-ramp-1 = 
-ramp-1-foreground = ${colors.warning}
-ramp-2 = 
-ramp-2-foreground = ${colors.deep-sky-blue}
-
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = !!
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.fg-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
-
-
-[module/menu]
-type = custom/menu
-interval = 2
-format-spacing = 1
-format-background = ${colors.background}
-label-open = ""
-label-open-foreground = ${colors.foreground}
-label-open-background = ${colors.background}
-label-close = ""
-label-close-foreground = ${colors.background}
-label-separator = " . "
-label-separator-foreground = ${colors.foreground}
-# Top level
-menu-0-0 = "  "
-menu-0-0-exec = menu-open-1
-menu-0-1 = "    ."
-menu-0-1-exec = menu-open-2
-# 1
-menu-1-0 = "  "
-menu-1-0-exec = google-chrome-stable &
-menu-1-1 = "  "
-menu-1-1-exec = i3-scrot -s
-menu-1-2 = "    ."
-menu-1-2-exec = nautilus &
-# 3
-menu-2-0 = "  "
-menu-2-0-exec = menu-open-0
-menu-2-1 = "   "
-menu-2-1-exec = ~/.config/i3/lock.sh
-menu-2-2 = "   "
-menu-2-2-exec = i3exit logout
-menu-2-3 = "   "
-menu-2-3-exec = systemctl reboot
-menu-2-4 = "      ."
-menu-2-4-exec = systemctl poweroff
-
-
-[settings]
-screenchange-reload = true
-; compositing-background = xor
-; compositing-background = screen
-; compositing-foreground = source
-; compositing-border = over
-pseudo-transparency = ture
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini

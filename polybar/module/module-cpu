@@ -1,0 +1,28 @@
+;=====================
+;   ___ _ __  _   _ 
+;  / __| '_ \| | | |
+; | (__| |_) | |_| |
+;  \___| .__/ \__,_|
+;      |_|          
+; 
+;=====================
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+format = <ramp-load> <label>
+; format-underline = #F0FFFF
+
+label =  %percentage%%
+label-foreground = ${colors.label}
+
+ramp-load-0 = 
+ramp-load-0-foreground = ${colors.normal}
+ramp-load-1 = 
+ramp-load-1-foreground = ${colors.warning}
+ramp-load-2 = 
+ramp-load-2-foreground = ${colors.urgent}
+
+
+; vim:ft=dosini

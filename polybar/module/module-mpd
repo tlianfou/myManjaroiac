@@ -1,0 +1,62 @@
+;===========================
+;
+;                      _ 
+;  _ __ ___  _ __   __| |
+; | '_ ` _ \| '_ \ / _` |
+; | | | | | | |_) | (_| |
+; |_| |_| |_| .__/ \__,_|
+;           |_|  
+;
+;
+;===========================
+
+[module/mpd]
+type = internal/mpd
+
+host = 127.0.0.1
+port = 6600
+
+format-online = <toggle> <icon-prev> <label-song> <icon-next> <icon-stop>  <bar-progress>  <icon-repeat> <icon-random>
+format-paused = <toggle>  <label-song> <icon-stop>
+format-stopped =  <toggle>
+
+label-song =  %title%
+
+# label-song-underline = ${colors.cadet-blue-2}
+
+icon-play = 
+icon-play-foreground = ${colors.normal}
+icon-play-margin = 1
+icon-pause = 
+icon-pause-foreground = ${colors.warning}
+icon-pause-margin = 1
+icon-stop = 
+icon-stop-foreground = ${colors.urgent}
+icon-stop-margin = 1
+icon-prev = 
+icon-prev-foreground = ${colors.medium-purple}
+icon-prev-margin = 1
+icon-next = 
+icon-next-foreground = ${colors.medium-purple}
+icon-next-margin = 1
+icon-repeat = 
+icon-repeat-margin = 1
+icon-random = 
+icon-random-margin = 1
+
+toggle-on-foreground = ${colors.blue}
+toggle-off-foreground = ${colors.urgent}
+
+bar-progress-width = 10
+bar-progress-indicator = 
+bar-progress-fill = 
+bar-progress-fill-foreground = ${colors.urgent}
+bar-progress-empty = 
+bar-progress-empty-foreground = ${colors.normal}
+bar-progress-gradient = true
+# bar-progress-foreground-0 = ${colors.urgent}
+# bar-progress-foreground-1 = ${colors.urgent}
+# bar-progress-foreground-2 = ${colors.normal}
+
+
+; vim:ft=dosini

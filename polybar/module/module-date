@@ -1,0 +1,27 @@
+;=========================
+;      _       _       
+;   __| | __ _| |_ ___ 
+;  / _` |/ _` | __/ _ \
+; | (_| | (_| | ||  __/
+;  \__,_|\__,_|\__\___|
+;
+;=========================
+
+[module/date]
+type = internal/date
+interval = 0.5
+
+date-alt = "%y-%m-%d"
+
+time = %H:%M:%S
+
+; format-underline = #0a6cf5
+
+format =  <label>
+
+label =  %date% %time%
+label-font = 3
+label-foreground = ${colors.label}
+
+
+; vim:ft=dosini

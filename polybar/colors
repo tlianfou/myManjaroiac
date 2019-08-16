@@ -1,0 +1,40 @@
+; vim:ft=dosini
+
+[colors]
+
+bg = #2f343f
+fg = #f3f3f5
+fg-alt = #f3f3f5
+
+bg-0 = #3f3f3f
+bg-1 = #3d3e3f
+bg-2 = #3c3d3f
+bg-3 = #3a3c3f
+bg-4 = #393b3f
+bg-5 = #373a3f
+bg-6 = #35383f
+bg-7 = #34373f
+bg-8 = #32363f
+bg-9 = #31353f
+
+normal = #7cfc00
+warning = #ffff00
+urgent = #dc143c
+
+; 标签的颜色，有几个备选方案
+label = #60ffc6
+; label = #60ffff
+; label = #ffff60
+; label = #ff389c
+; label = #ff1aee
+
+separator = #434c5e
+
+blue = #5294e2
+cadet-blue = #8fbcbb
+cadet-blue-2 = #88c0d0
+grep = #d8dee9
+light-slate-gray = #81a1c1
+deep-sky-blue = #00bfff
+orange-red = #ff4500
+medium-purple = #9370db

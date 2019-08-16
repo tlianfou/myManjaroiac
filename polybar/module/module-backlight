@@ -1,0 +1,28 @@
+;==============================================
+;  _                _    _ _       _     _   
+; | |__   __ _  ___| | _| (_) __ _| |__ | |_ 
+; | '_ \ / _` |/ __| |/ / | |/ _` | '_ \| __|
+; | |_) | (_| | (__|   <| | | (_| | | | | |_ 
+; |_.__/ \__,_|\___|_|\_\_|_|\__, |_| |_|\__|
+;                            |___/           
+;                  屏幕背光
+;
+;==============================================
+
+
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <ramp> <label>
+; format-underline = #7CFC00
+
+label =  %percentage%%
+label-foreground = ${colors.label}
+
+; Only applies if <ramp> is used
+ramp-0 = 
+ramp-0-foreground = ${colors.grep}
+
+
+; vim:ft=dosini

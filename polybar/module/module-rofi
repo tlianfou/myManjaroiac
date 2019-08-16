@@ -1,0 +1,22 @@
+;========================================
+;
+;.______        ______    _______  __  
+; |   _  \      /  __  \  |   ____||  | 
+; |  |_)  |    |  |  |  | |  |__   |  | 
+; |      /     |  |  |  | |   __|  |  | 
+; |  |\  \----.|  `--'  | |  |     |  | 
+; | _| `._____| \______/  |__|     |__| 
+;
+;========================================
+
+
+[module/rofi]
+type = custom/text
+content =  
+content-padding = 4
+content-background = ${colors.blue}
+content-foreground = ${colors.fg}
+click-left = exec rofi -show drun
+
+
+; vim:ft=dosini
