@@ -12,10 +12,15 @@ exec_always alacritty
 exec_always variety
 exec_always compton
 exec_always fcitx
+
 exec_always killall mpd
 exec_always sleep 1.5; mpd
+
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 exec_always killall conky
+
+exec_always sleep 0.5; xmodmap ~/.Xmodmap
 ###
 
 # set mod+l to lock
