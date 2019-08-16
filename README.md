@@ -178,8 +178,8 @@ export XMODIFIERS="@im=fcitx"
 
 ```
 
-> 连接wifi nmcli
+> 连接wifi nmcli  https://blog.csdn.net/shaozuo133/article/details/79060536
 
 > 配置快捷键 alias
 
-> https://blog.csdn.net/shaozuo133/article/details/79060536
+> 修改默认目录 (Desktop什么的) .config/user-dirs.dirs
