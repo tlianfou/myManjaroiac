@@ -58,30 +58,93 @@ Xft.dpi:125
 > 关于使用i3wm的默认键位
 ---
 
-## 添加镜像源并且更新镜像源
+## pacman
 
-在terminal下输入指令，进入pacman的配置文件
+### 添加镜像源并且更新镜像源
 
+拷贝配置文件并且执行更新命令
 ```
-$ sudo nano /etc/pacman.conf
-```
-（使用nano是因为默认没有vim）
-
-在最后一行添加以下代码并保存退出
-```
-[archlinuxcn]
-SigLevel = Never
-Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
-```
-
-最后执行命令
-```
+$ sudo cp ${mi3wmiac}/archlinuxcn /etc/pacman.d/
+$ sudo cp ${mi3wmiac}/pacman/pacman.conf /etc/
 $ sudo pacman-mirrors -c China
 $ sudo pacman -Syyu
 ```
 之后一路回车并且等待安装更新
 
-安装好之后reboot电脑
+安装好之后重启电脑
+
+### 常用指令
+| 指令              | 功能                                         | 备注                             |
+|-------------------|----------------------------------------------|----------------------------------|
+| S                 | 安装软件                                     |                                  |
+| Syyu              | 强行获取最新的软件并且更新                   | 如果只有Sy将无法证明一定是最新的 |
+| Ss "name"         | 搜索所有软件中有name的软件                   | 支持正则表达式                   |
+| Sc                | 删除缓存中的安装包                           | 不删除也有一定好处               |
+| R "name"          | 删除名为name的软件                           | 无法完全删除，因为存在依赖软件   |
+| Rs "name"         | 删除名为name的软件及其依赖软件               | 不会删除全局配置文件             |
+| Rns "name"        | 删除名为name的软件及其依赖软件和全局配置文件 |                                  |
+| Q                 | 显示所有已安装的软件                         |                                  |
+| Qe                | 显示所有用户自己安装的软件                   |                                  |
+| Qeq               | 显示所有用户自己安装的软件并且不显示版本号   | 可以用于批量重装软件             |
+| Qs "name"         | 显示所有已安装软件中带name的软件             |                                  |
+| Qdt               | 查询不再被需要的（依赖）软件                 |                                  |
+| R $(pacman -Qdtq) | 删除所有不再被需要的软件                     | fish是不需要$符和括号的          |
+
+
+## fish
+```
+// 安装fish
+$ sudo pacman -S fish
+
+// 检查fish的安装位置（一般为/usr/bin/fish）
+$ which fish
+
+// 切换默认shell为fish，目录是你上个命令得到的目录，这里我使用一般情况
+// Warning：这个命令不要用sudo
+$ chsh -s /usr/bin/fish
+
+// 安装oh-my-fish
+$ curl -L https://get.oh-my.fish | fish
+
+```
+> fish的主题的更换以后再说
+
+## 必要的软件和字体
+```
+// 必要的字体
+$ sudo pacman -S ttf-font-awesome wqy-bitmapfont wqy-microhei wqy-zenhei nerd-fonts-complete ttf-wps-fonts
+
+// variety 桌面壁纸管理软件
+// compton i3下的渲染器，在后面可以使alacritty半透明
+// polybar 状态栏，这玩意配置过程太恐怖了，但是它太棒了
+// rofi 程序启动器
+// dmenu 同样是程序启动器
+// chromium 谷歌浏览器
+// kdenlive 剪辑视频
+// vlc 观看视频
+// wps-office 不多说，垃圾microsoft office
+// code visual-studio-code，用过的都说好
+// netease-cloud-music 网易云音乐
+// simplescreenrecorder 录屏软件，不过我的电脑录不了声音
+// ncmpcpp 搭配mpd一起使用
+
+$ sudo pacman -S variety compton polybar rofi chromium kdenlive vlc 
+$ sudo pacman -S wps-office netease-cloud-music ncmpcpp
+```
+
+## 中文输入法
+```
+$ sudo pacman -S fcitx fcitx-im fcitx-configtool
+$ sudo pacman -S fcitx-sogoupinyin
+
+// 配置中文输入法
+$ vim ~/.xprofile
+// 输入以下内容
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+// 保存退出，reboot系统
+```
 
 ## vim
 ```
@@ -107,29 +170,6 @@ $ source ~/.vimrc
 
 vim配置完成
 
-## pacman
-```
-$ sudo vim /etc/pacman.conf
-```
-将Color这一行取消注释，pacman就会拥有颜色的区分
-
-## fish
-```
-// 安装fish
-$ sudo pacman -S fish
-
-// 检查fish的安装位置（一般为/usr/bin/fish）
-$ which fish
-
-// 切换默认shell为fish，目录是你上个命令得到的目录，这里我使用一般情况
-// Warning：这个命令不要用sudo
-$ chsh -s /usr/bin/fish
-
-// 安装oh-my-fish
-$ curl -L https://get.oh-my.fish | fish
-
-```
-> fish的主题的更换以后再说
 
 ## alacritty
 ```
@@ -184,47 +224,21 @@ bindsym $mod+Return exec alacritty
 
 //保存并退出，并按下mod+Shift+c刷新i3配置就可以了
 ```
-## 必要的软件和字体
-```
-// 必要的字体
-$ sudo pacman -S ttf-font-awesome wqy-bitmapfont wqy-microhei wqy-zenhei nerd-fonts-complete ttf-wps-fonts
 
-// variety 桌面壁纸管理软件
-// compton i3下的渲染器，在后面可以使alacritty半透明
-// polybar 状态栏，这玩意配置过程太恐怖了，但是它太棒了
-// rofi 程序启动器
-// dmenu 同样是程序启动器
-// chromium 谷歌浏览器
-// kdenlive 剪辑视频
-// vlc 观看视频
-// wps-office 不多说，垃圾microsoft office
-// code visual-studio-code，用过的都说好
-// netease-cloud-music 网易云音乐
-// simplescreenrecorder 录屏软件，不过我的电脑录不了声音
-// ncmpcpp 搭配mpd一起使用
+## i3wm
+只需要将我的github上的i3目录下的config文件复制到`~/.i3` 目录下再使用重载i3配置的快捷键`mod+Shift+c` 就可以重载i3配置并且使用了
 
-$ sudo pacman -S variety compton polybar rofi chromium kdenlive vlc 
-$ sudo pacman -S wps-office netease-cloud-music ncmpcpp
+一些我常用的配置我放在文件[Common_shortcuts.md](https://github.com/tlianfou/mi3wmiac/blob/master/Common-shortcuts.md) 里了
+
+## polybar
+将整个polybar目录直接复制到`～/.config` 目录下，随后执行命令
+```shell
+$ polybar taifu
 ```
 
-## 中文输入法
-```
-$ sudo pacman -S fcitx fcitx-im fcitx-configtool
-$ sudo pacman -S fcitx-sogoupinyin
+就可以运行（但不是完美）我已经配置好的polybar了，polybar的代码非常简洁易读，很容易就能弄懂，只不过配置自己喜欢的polybar是一件很麻烦的事情，如果想要进行自定义配置，可以去看[官方文档](https://github.com/polybar/polybar/wiki) ，里面的说明非常详细
 
-// 配置中文输入法
-$ vim ~/.xprofile
-// 输入以下内容
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-// 保存退出，reboot系统
-```
-
-## 拷贝我的配置们
-```
-
-```
+## mpd与ncmpcpp
 
 > 连接wifi nmcli  https://blog.csdn.net/shaozuo133/article/details/79060536
 

@@ -1,0 +1,17 @@
+## 清华大学
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+
+## 阿里云，很快但不是最新的
+Server = http://mirrors.aliyun.com/archlinuxcn/$arch
+
+## 中科大
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/&arch
+
+## CDN
+Server = http://cdn.repo.archlinuxcn.org/$arch
+
+## 浙江大学
+Server = http://mirrors.zju.edu.cn/archlinuxcn/$arch
+
+## xTom 慢的一逼
+Server = https://mirror.xtom.com.hk/archlinuxcn/$arch
