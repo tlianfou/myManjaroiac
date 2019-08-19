@@ -193,6 +193,9 @@ $ source ~/.vimrc
 
 vim配置完成
 
+    tips:
+        如果要在vim中将单词拼写错误识别加上下划线，使用指令:highlight SpellBad cterm=underline
+
 
 ## alacritty
 

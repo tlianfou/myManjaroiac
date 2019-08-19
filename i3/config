@@ -7,7 +7,9 @@ set $mod Mod4
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
-### 开机自启动 
+### 开机自启动
+exec_always killall conky
+
 exec_always alacritty
 exec_always variety
 exec_always compton
@@ -17,8 +19,6 @@ exec_always killall mpd
 exec_always sleep 1.5; mpd
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-exec_always killall conky
 
 exec_always sleep 0.5; xmodmap ~/.Xmodmap
 ###
@@ -313,7 +313,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
