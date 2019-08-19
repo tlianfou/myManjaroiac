@@ -1,8 +1,25 @@
 # Manjaro-i3wm的安装及其配置
 
-[TOC]
+<!-- vim-markdown-toc GFM -->
+
+* [安装Manjaro-i3wm](#安装manjaro-i3wm)
+* [> 关于使用i3wm的默认键位](#-关于使用i3wm的默认键位)
+* [pacman](#pacman)
+    - [添加镜像源并且更新镜像源](#添加镜像源并且更新镜像源)
+    - [常用指令](#常用指令)
+* [fish](#fish)
+* [必要的软件和字体](#必要的软件和字体)
+* [中文输入法](#中文输入法)
+* [vim](#vim)
+* [alacritty](#alacritty)
+* [i3wm](#i3wm)
+* [polybar](#polybar)
+* [mpd与ncmpcpp](#mpd与ncmpcpp)
+
+<!-- vim-markdown-toc -->
 
 ## 安装Manjaro-i3wm
+
 首先要去到[官网](https://manjaro.org/)下载最新的iso镜像
 
 进入Download界面，这里我们选择Community里面的i3
@@ -44,6 +61,7 @@
 1、知道mod+Return是打开终端
 
 2、更改屏幕大小
+
 ```
 // 在家目录下新建文件(如果没有)
 $ vim ~/.Xresources
@@ -74,6 +92,7 @@ $ sudo pacman -Syyu
 安装好之后重启电脑
 
 ### 常用指令
+
 | 指令              | 功能                                         | 备注                             |
 |-------------------|----------------------------------------------|----------------------------------|
 | S                 | 安装软件                                     |                                  |
@@ -92,6 +111,7 @@ $ sudo pacman -Syyu
 
 
 ## fish
+
 ```
 // 安装fish
 $ sudo pacman -S fish
@@ -110,6 +130,7 @@ $ curl -L https://get.oh-my.fish | fish
 > fish的主题的更换以后再说
 
 ## 必要的软件和字体
+
 ```
 // 必要的字体
 $ sudo pacman -S ttf-font-awesome wqy-bitmapfont wqy-microhei wqy-zenhei nerd-fonts-complete ttf-wps-fonts
@@ -128,11 +149,12 @@ $ sudo pacman -S ttf-font-awesome wqy-bitmapfont wqy-microhei wqy-zenhei nerd-fo
 // simplescreenrecorder 录屏软件，不过我的电脑录不了声音
 // ncmpcpp 搭配mpd一起使用
 
-$ sudo pacman -S variety compton polybar rofi chromium kdenlive vlc 
+$ sudo pacman -S variety compton polybar rofi chromium kdenlive vlc
 $ sudo pacman -S wps-office netease-cloud-music ncmpcpp
 ```
 
 ## 中文输入法
+
 ```
 $ sudo pacman -S fcitx fcitx-im fcitx-configtool
 $ sudo pacman -S fcitx-sogoupinyin
@@ -147,6 +169,7 @@ export XMODIFIERS="@im=fcitx"
 ```
 
 ## vim
+
 ```
 // 安装vim和curl
 $ sudo pacman -S vim curl
@@ -172,6 +195,7 @@ vim配置完成
 
 
 ## alacritty
+
 ```
 // 终端 alacritty 和 dmenu（一个程序启动器）
 $ sudo pacman -S alacritty
@@ -226,19 +250,35 @@ bindsym $mod+Return exec alacritty
 ```
 
 ## i3wm
+
 只需要将我的github上的i3目录下的config文件复制到`~/.i3` 目录下再使用重载i3配置的快捷键`mod+Shift+c` 就可以重载i3配置并且使用了
 
 一些我常用的配置我放在文件[Common_shortcuts.md](https://github.com/tlianfou/mi3wmiac/blob/master/Common-shortcuts.md) 里了
 
 ## polybar
-将整个polybar目录直接复制到`～/.config` 目录下，随后执行命令
-```shell
+拷贝配置文件并运行
+```
+$ cp -rf ${mi3wmiac}/polybar ~/.config/
 $ polybar taifu
 ```
 
 就可以运行（但不是完美）我已经配置好的polybar了，polybar的代码非常简洁易读，很容易就能弄懂，只不过配置自己喜欢的polybar是一件很麻烦的事情，如果想要进行自定义配置，可以去看[官方文档](https://github.com/polybar/polybar/wiki) ，里面的说明非常详细
 
 ## mpd与ncmpcpp
+
+安装mpd和ncmpcpp，随后拷贝配置文件并且运行，如果报错就重启试试
+
+```shell
+$ sudo pacman -S mpd ncmpcpp
+$ cp ${mi3wmiac}/mpd-and-ncmpcpp/config ~/.ncmpcpp
+$ cp ${mi3wmiac}/mpd-and-ncmpcpp/mpd.conf
+$ mpd
+$ ncmpcpp
+```
+
+
+
+
 
 > 连接wifi nmcli  https://blog.csdn.net/shaozuo133/article/details/79060536
 
