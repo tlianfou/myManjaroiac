@@ -95,7 +95,14 @@ let mapleader=","
 map ; :
 noremap <SPACE><UP> 5<UP>
 noremap <SPACE><DOWN> 5<DOWN>
-imap <C-z> <Esc>ui
+inoremap <C-z> <Esc>ui
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
+inoremap () ()<LEFT>
+inoremap {} {}<LEFT>
+inoremap [] []<LEFT>
+inoremap <LEADER>f <Esc>/<++><CR>:nohlsearch<CR>c4l
+inoremap <> <++>
 
 "Shift + s 是保存
 map S :w<CR>
@@ -199,6 +206,9 @@ set background=dark
 let g:solarized_termtrans=1
 colorscheme solarized
 
+" YouCompleteMe相关配置
+let g:completor_clang_binary = '/usr/include/clang'
+
 "vim-hybrid的配置
 "set background=dark
 "let g:hybrid_custom_term_colors = 1
@@ -217,7 +227,6 @@ colorscheme solarized
 "colorscheme PaperColor
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:completor_clang_binary = '/path/to/clang'
 
 """"""""""""""""""""""""分屏，基本永不到""""""""""""""""""
 "向上(up)/下(below)/左(left)/右(right)分屏
