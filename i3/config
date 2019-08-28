@@ -26,7 +26,7 @@ exec_always sleep 0.5; xmodmap ~/.Xmodmap
 # set mod+l to lock
 bindsym $mod+l exec --no-startup-id i3exit lock
 
-bindsym Shift+Return exec --no-startup-id rofi -show drun
+bindsym Ctrl+Shift+Return exec --no-startup-id rofi -show drun
 
 # set mod+s to standby
 bindsym $mod+s exec --no-startup-id i3exit suspend
