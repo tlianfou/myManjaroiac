@@ -1,4 +1,4 @@
-# Mine install and configure of the Linux(Manjaro)
+# My installation and configure of Linux(Manjaro)
 
 This repositories is my experience on install Linux(Manjaro)
 
@@ -14,7 +14,7 @@ This repositories is my experience on install Linux(Manjaro)
 ## I3wm
 This is the introduction about [i3wm](https://wiki.archlinux.org/index.php/I3)(i3)
 
-If you want to install the i3wm, i wrote a document to teach you(and me) how to install it.
+If you want to install the i3wm, i wrote a document to teach you(or future me) how to install it.
 
 You can go and read the [README_i3.md](./README_i3.md).
 
