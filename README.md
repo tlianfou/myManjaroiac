@@ -1,4 +1,4 @@
-# My Manjaro install and configuration
+# Mine install and configure of the Linux(Manjaro)
 
 This repositories is my experience on install Linux(Manjaro)
 
@@ -19,15 +19,15 @@ If you want to install the i3wm, i wrote a document to teach you(and me) how to 
 You can go and read the [README_i3.md](./README_i3.md).
 
 ## Kde
-You may know the kde plassma in some places, you can find a lot of tutorials online.
+You may know the `KDE plassma` in some places, if you want to install it, you can find a lot of tutorials online.
 
-Configuration it is a very interesting process.
+Configuration the `KDE plassma` is a very interesting process.
 
 Hurry and try it!
 
 ## Vim
-[Vim](https://www.vim.org/) is the god of the editor, or perhaps you can use the `neovim`.
+[Vim](https://www.vim.org/) is the god of the editor, or perhaps is the `neovim`.
 
-You can go to the `vim` folder and read the [README.md](./vim/README.md) in that folder.
+You can go to the folder named `vim` and read the [README.md](./vim/README.md) in that folder.
 
 ## Pacman
