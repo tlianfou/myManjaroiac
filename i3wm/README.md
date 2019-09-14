@@ -4,13 +4,8 @@
 
 * [安装Manjaro-i3wm](#安装manjaro-i3wm)
 * [> 关于使用i3wm的默认键位](#-关于使用i3wm的默认键位)
-* [pacman](#pacman)
-    - [添加镜像源并且更新镜像源](#添加镜像源并且更新镜像源)
-    - [常用指令](#常用指令)
-* [fish](#fish)
 * [必要的软件和字体](#必要的软件和字体)
 * [中文输入法](#中文输入法)
-* [vim](#vim)
 * [alacritty](#alacritty)
 * [i3wm](#i3wm)
 * [polybar](#polybar)
@@ -76,59 +71,6 @@ Xft.dpi:125
 > 关于使用i3wm的默认键位
 ---
 
-## pacman
-
-### 添加镜像源并且更新镜像源
-
-拷贝配置文件并且执行更新命令
-```
-$ sudo cp ${mi3wmiac}/archlinuxcn /etc/pacman.d/
-$ sudo cp ${mi3wmiac}/pacman/pacman.conf /etc/
-$ sudo pacman-mirrors -c China
-$ sudo pacman -Syyu
-```
-之后一路回车并且等待安装更新
-
-安装好之后重启电脑
-
-### 常用指令
-
-| 指令              | 功能                                         | 备注                             |
-|-------------------|----------------------------------------------|----------------------------------|
-| S                 | 安装软件                                     |                                  |
-| Syyu              | 强行获取最新的软件并且更新                   | 如果只有Sy将无法证明一定是最新的 |
-| Ss "name"         | 搜索所有软件中有name的软件                   | 支持正则表达式                   |
-| Sc                | 删除缓存中的安装包                           | 不删除也有一定好处               |
-| R "name"          | 删除名为name的软件                           | 无法完全删除，因为存在依赖软件   |
-| Rs "name"         | 删除名为name的软件及其依赖软件               | 不会删除全局配置文件             |
-| Rns "name"        | 删除名为name的软件及其依赖软件和全局配置文件 |                                  |
-| Q                 | 显示所有已安装的软件                         |                                  |
-| Qe                | 显示所有用户自己安装的软件                   |                                  |
-| Qeq               | 显示所有用户自己安装的软件并且不显示版本号   | 可以用于批量重装软件             |
-| Qs "name"         | 显示所有已安装软件中带name的软件             |                                  |
-| Qdt               | 查询不再被需要的（依赖）软件                 |                                  |
-| R $(pacman -Qdtq) | 删除所有不再被需要的软件                     | fish是不需要$符和括号的          |
-
-
-## fish
-
-```
-// 安装fish
-$ sudo pacman -S fish
-
-// 检查fish的安装位置（一般为/usr/bin/fish）
-$ which fish
-
-// 切换默认shell为fish，目录是你上个命令得到的目录，这里我使用一般情况
-// Warning：这个命令不要用sudo
-$ chsh -s /usr/bin/fish
-
-// 安装oh-my-fish
-$ curl -L https://get.oh-my.fish | fish
-
-```
-> fish的主题的更换以后再说
-
 ## 必要的软件和字体
 
 ```
@@ -167,35 +109,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 // 保存退出，reboot系统
 ```
-
-## vim
-
-```
-// 安装vim和curl
-$ sudo pacman -S vim curl
-
-// 安装必要的配置文件
-$ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-$ sudo pacman -S nodejs yarn
-
-// 复制我github目录下vim文件夹下的.vimrc文件至你的home目录
-$ cp ${github}/vim/.vimrc ~/
-
-//重载vim，即使有报错也不用管，一路回车
-$ source ~/.vimrc
-```
-随后在vim中键入指令
-```
-:PlugInstall
-```
-等待配置安装，安装好之后Q退出安装界面，Shitf+q退出vim
-
-vim配置完成
-
-    tips:
-        如果要在vim中将单词拼写错误识别加上下划线，使用指令:highlight SpellBad cterm=underline
-
 
 ## alacritty
 
