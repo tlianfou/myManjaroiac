@@ -2,6 +2,8 @@
 
 This repositories is my experience on install Linux(Manjaro)
 
+> 推荐教程 : [https://www.cnblogs.com/Jaywhen-xiang/p/11561661.html](https://www.cnblogs.com/Jaywhen-xiang/p/11561661.html)
+
 <!-- vim-markdown-toc GFM -->
 
 * [I3wm](#i3wm)
